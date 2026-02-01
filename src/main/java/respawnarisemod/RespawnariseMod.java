@@ -13,6 +13,7 @@ import net.neoforged.fml.event.lifecycle.FMLCommonSetupEvent;
 import net.neoforged.neoforge.common.NeoForge;
 import net.neoforged.neoforge.event.BuildCreativeModeTabContentsEvent;
 import net.neoforged.neoforge.event.server.ServerStartingEvent;
+import respawnarisemod.block.ModBlocks;
 import respawnarisemod.item.ModCreativeModTabs;
 import respawnarisemod.item.ModItems;
 import respawnarisemod.util.ModDataComponents;
@@ -29,6 +30,7 @@ public class RespawnariseMod {
 
         ModDataComponents.register(modEventBus);
         ModItems.register(modEventBus);
+        ModBlocks.register(modEventBus);
         ModCreativeModTabs.register(modEventBus);
 
         modEventBus.addListener(this::addCreative);
