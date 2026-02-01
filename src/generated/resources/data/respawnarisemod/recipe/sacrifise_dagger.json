@@ -1,0 +1,24 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "B": {
+      "item": "minecraft:bone"
+    },
+    "F": {
+      "item": "minecraft:flint"
+    },
+    "L": {
+      "item": "minecraft:leather"
+    }
+  },
+  "pattern": [
+    "  F",
+    " L ",
+    "B  "
+  ],
+  "result": {
+    "count": 1,
+    "id": "respawnarisemod:sacrifise_dagger"
+  }
+}
