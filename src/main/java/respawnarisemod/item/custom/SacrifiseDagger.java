@@ -3,31 +3,39 @@ package respawnarisemod.item.custom;
 import net.minecraft.network.chat.Component;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.world.entity.Entity;
+import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.SlotAccess;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.inventory.ClickAction;
 import net.minecraft.world.inventory.Slot;
-import net.minecraft.world.inventory.tooltip.TooltipComponent;
 import net.minecraft.world.item.*;
 import respawnarisemod.RespawnariseMod;
 import respawnarisemod.item.components.SacrifiseDaggerComponent;
+import respawnarisemod.item.components.SoulVisageComponent;
 import respawnarisemod.util.ModDataComponents;
-
 import java.util.List;
-import java.util.Optional;
 
 public class SacrifiseDagger extends SwordItem {
-    public SacrifiseDagger(boolean primitive) {
+    public SacrifiseDagger() {
         super(Tiers.WOOD,(new Item.Properties())
-                .durability(primitive?1:100)
-                .attributes(SwordItem.createAttributes(Tiers.WOOD, 99, -3.0F))
+                .attributes(SwordItem.createAttributes(Tiers.WOOD, 0, -3.0F))
                 .component(ModDataComponents.DAGGER_CONTENT.get(), SacrifiseDaggerComponent.empty())
         );
     }
     @Override
     public boolean hurtEnemy(ItemStack stack, LivingEntity target, LivingEntity attacker) {
-        return true;
+        if (!attacker.level().isClientSide &&
+                attacker instanceof Player player &&
+                !(target instanceof Player) &&
+                target.isDeadOrDying()
+        ) {
+            SacrifiseDaggerComponent content = (SacrifiseDaggerComponent)stack.get(ModDataComponents.DAGGER_CONTENT);
+            if(content!=null && content.content().getItem() instanceof SoulVisage){
+                content.content().set(ModDataComponents.VISAGE_CONTENT,new SoulVisageComponent(EntityType.getKey(target.getType()).toString()));
+            }
+        }
+        return super.hurtEnemy(stack, target, attacker);
     }
     @Override
     public boolean overrideStackedOnOther(ItemStack stack, Slot slot, ClickAction action, Player player) {
@@ -74,7 +82,16 @@ public class SacrifiseDagger extends SwordItem {
     public void appendHoverText(ItemStack stack, TooltipContext context, List<Component> tooltipComponents, TooltipFlag tooltipFlag) {
         SacrifiseDaggerComponent content = (SacrifiseDaggerComponent)stack.get(ModDataComponents.DAGGER_CONTENT);
         if(content!=null){
-            tooltipComponents.add(Component.literal(content.content().isEmpty()?"No Visage Installed":"Visage installed"));
+            String message="";
+            if(content.content().isEmpty()){
+                message = "No Visage Installed";
+            }else if(content.content().getItem() instanceof SoulVisage){
+                SoulVisageComponent captured = content.content().get(ModDataComponents.VISAGE_CONTENT);
+                if(captured!=null){
+                    message=captured.typeKey()==null?"No entity captured": ("Captured: "+captured.typeKey());
+                }
+            }
+            tooltipComponents.add(Component.literal(message));
         }
         super.appendHoverText(stack, context, tooltipComponents, tooltipFlag);
     }

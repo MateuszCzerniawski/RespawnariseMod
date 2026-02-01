@@ -16,8 +16,8 @@ public class ModCreativeModTabs {
             DeferredRegister.create(Registries.CREATIVE_MODE_TAB, RespawnariseMod.MOD_ID);
 
     public static final Supplier<CreativeModeTab> RESPAWNARISE_TAB = buildTab("respawnarise_tab",ModItems.SOUL_VISAGE,
-            ModItems.SOUL_VISAGE,ModItems.PRIMITIVE_SOUL_VISAGE,
-            ModItems.SACRIFISE_DAGGER,ModItems.PRIMITIVE_SACRIFISE_DAGGER
+            ModItems.SOUL_VISAGE,
+            ModItems.SACRIFISE_DAGGER
             );
     private static Supplier<CreativeModeTab> buildTab(String name, ItemLike icon, ItemLike... items){
         CreativeModeTab.Builder builder= CreativeModeTab.builder();
