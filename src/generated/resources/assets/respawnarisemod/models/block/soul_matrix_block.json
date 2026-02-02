@@ -1,0 +1,12 @@
+{
+  "parent": "minecraft:block/cube",
+  "textures": {
+    "down": "respawnarisemod:block/soul_matrix_block_down",
+    "east": "respawnarisemod:block/soul_matrix_block_east",
+    "north": "respawnarisemod:block/soul_matrix_block_north",
+    "particle": "respawnarisemod:block/soul_matrix_block_down",
+    "south": "respawnarisemod:block/soul_matrix_block_south",
+    "up": "respawnarisemod:block/soul_matrix_block_up",
+    "west": "respawnarisemod:block/soul_matrix_block_west"
+  }
+}

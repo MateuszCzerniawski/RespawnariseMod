@@ -14,8 +14,10 @@ import net.neoforged.neoforge.common.NeoForge;
 import net.neoforged.neoforge.event.BuildCreativeModeTabContentsEvent;
 import net.neoforged.neoforge.event.server.ServerStartingEvent;
 import respawnarisemod.block.ModBlocks;
+import respawnarisemod.block.entity.ModBlockEntities;
 import respawnarisemod.item.ModCreativeModTabs;
 import respawnarisemod.item.ModItems;
+import respawnarisemod.screen.ModMenuTypes;
 import respawnarisemod.util.ModDataComponents;
 
 // The value here should match an entry in the META-INF/neoforge.mods.toml file
@@ -32,6 +34,8 @@ public class RespawnariseMod {
         ModItems.register(modEventBus);
         ModBlocks.register(modEventBus);
         ModCreativeModTabs.register(modEventBus);
+        ModBlockEntities.register(modEventBus);
+        ModMenuTypes.register(modEventBus);
 
         modEventBus.addListener(this::addCreative);
         modContainer.registerConfig(ModConfig.Type.COMMON, Config.SPEC);

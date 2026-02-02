@@ -8,6 +8,7 @@ import net.minecraft.world.level.ItemLike;
 import net.neoforged.bus.api.IEventBus;
 import net.neoforged.neoforge.registries.DeferredRegister;
 import respawnarisemod.RespawnariseMod;
+import respawnarisemod.block.ModBlocks;
 
 import java.util.function.Supplier;
 
@@ -17,7 +18,8 @@ public class ModCreativeModTabs {
 
     public static final Supplier<CreativeModeTab> RESPAWNARISE_TAB = buildTab("respawnarise_tab",ModItems.SOUL_VISAGE,
             ModItems.SOUL_VISAGE,
-            ModItems.SACRIFISE_DAGGER
+            ModItems.SACRIFISE_DAGGER,
+            ModBlocks.SOUL_MATRIX_BLOCK
             );
     private static Supplier<CreativeModeTab> buildTab(String name, ItemLike icon, ItemLike... items){
         CreativeModeTab.Builder builder= CreativeModeTab.builder();

@@ -1,5 +1,7 @@
 {
   "item.respawnarisemod.soul_visage": "Soul Visage",
   "item.respawnarisemod.sacrifise_dagger": "Sacrifise Dagger",
-  "creativetab.respawnarisemod.respawnarise_tab": "Respawnarise"
+  "creativetab.respawnarisemod.respawnarise_tab": "Respawnarise",
+  "block.respawnarisemod.soul_matrix": "Soul Matrix",
+  "block.respawnarisemod.soul_matrix_block": "Soul Matrix"
 }

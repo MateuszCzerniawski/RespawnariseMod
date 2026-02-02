@@ -3,6 +3,7 @@ package respawnarisemod.datagen.providers;
 import net.minecraft.data.PackOutput;
 import net.neoforged.neoforge.client.model.generators.ItemModelProvider;
 import net.neoforged.neoforge.common.data.ExistingFileHelper;
+import net.neoforged.neoforge.registries.DeferredBlock;
 import respawnarisemod.RespawnariseMod;
 import respawnarisemod.item.ModItems;
 
