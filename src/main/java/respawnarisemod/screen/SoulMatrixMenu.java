@@ -62,7 +62,7 @@ public class SoulMatrixMenu extends AbstractContainerMenu {
     public ItemStack quickMoveStack(Player player, int index) {
         ItemStack itemstack = ItemStack.EMPTY;
         Slot slot = this.slots.get(index);
-        int matrixSlots = 7;
+        int matrixSlots = 4;
         int inventorySlots = 27;
         int hotbarSlots = 9;
         if (slot != null && slot.hasItem()) {
