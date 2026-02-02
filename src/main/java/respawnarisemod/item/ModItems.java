@@ -13,7 +13,7 @@ public class ModItems {
 
     public static final DeferredRegister.Items ITEMS = DeferredRegister.createItems(RespawnariseMod.MOD_ID);
 
-    public static DeferredItem<Item> SOUL_VISAGE = ITEMS.registerItem("soul_visage",(p)->new SoulVisage(EntityType.CHICKEN));
+    public static DeferredItem<Item> SOUL_VISAGE = ITEMS.registerItem("soul_visage",(p)->new SoulVisage());
 
     public static DeferredItem<Item> SACRIFISE_DAGGER = ITEMS.registerItem("sacrifise_dagger", (p)->new SacrifiseDagger());
 

@@ -31,9 +31,15 @@ public class SacrifiseDagger extends SwordItem {
                 target.isDeadOrDying()
         ) {
             SacrifiseDaggerComponent content = (SacrifiseDaggerComponent)stack.get(ModDataComponents.DAGGER_CONTENT);
-            if(content!=null && content.content().getItem() instanceof SoulVisage){
-                content.content().set(ModDataComponents.VISAGE_CONTENT,new SoulVisageComponent(EntityType.getKey(target.getType()).toString()));
-                RespawnariseMod.log(EntityType.getKey(target.getType()).toString());
+            if(content!=null){
+                ItemStack contentStack = content.content();
+                if(contentStack.getItem() instanceof SoulVisage){
+                    String typeKey = EntityType.getKey(target.getType()).toString();
+                    SoulVisageComponent newVisageComponent = new SoulVisageComponent(typeKey);
+                    SacrifiseDaggerComponent newDaggerComponent = new SacrifiseDaggerComponent(contentStack.copy());
+                    newDaggerComponent.content().set(ModDataComponents.VISAGE_CONTENT, newVisageComponent);
+                    stack.set(ModDataComponents.DAGGER_CONTENT, newDaggerComponent);
+                }
             }
         }
         return super.hurtEnemy(stack, target, attacker);
