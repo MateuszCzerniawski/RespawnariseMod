@@ -32,15 +32,15 @@ public class SoulMatrixMenu extends AbstractContainerMenu {
         this.data = data;
         if(container instanceof SoulMatrixBlockEntity){
             this.blockEntity=((SoulMatrixBlockEntity)container);
-            this.addSlot(new SlotItemHandler(blockEntity.itemStackHandler,SoulMatrixBlockEntity.INPUT_SLOT_1,0,0));
-            this.addSlot(new SlotItemHandler(blockEntity.itemStackHandler,SoulMatrixBlockEntity.INPUT_SLOT_2,0,0));
-            this.addSlot(new SlotItemHandler(blockEntity.itemStackHandler,SoulMatrixBlockEntity.INPUT_SLOT_3,0,0));
-            this.addSlot(new SlotItemHandler(blockEntity.itemStackHandler,SoulMatrixBlockEntity.INPUT_SLOT_4,0,0));
+            this.addSlot(new SlotItemHandler(blockEntity.itemStackHandler,SoulMatrixBlockEntity.INPUT_SLOT_1,80,9));
+            this.addSlot(new SlotItemHandler(blockEntity.itemStackHandler,SoulMatrixBlockEntity.INPUT_SLOT_2,56,33));
+            this.addSlot(new SlotItemHandler(blockEntity.itemStackHandler,SoulMatrixBlockEntity.INPUT_SLOT_3,104,33));
+            this.addSlot(new SlotItemHandler(blockEntity.itemStackHandler,SoulMatrixBlockEntity.INPUT_SLOT_4,80,57));
         }else{
-            this.addSlot(new Slot(container,SoulMatrixBlockEntity.INPUT_SLOT_1,0,0));
-            this.addSlot(new Slot(container,SoulMatrixBlockEntity.INPUT_SLOT_2,0,0));
-            this.addSlot(new Slot(container,SoulMatrixBlockEntity.INPUT_SLOT_3,0,0));
-            this.addSlot(new Slot(container,SoulMatrixBlockEntity.INPUT_SLOT_4,0,0));
+            this.addSlot(new Slot(container,SoulMatrixBlockEntity.INPUT_SLOT_1,80,9));
+            this.addSlot(new Slot(container,SoulMatrixBlockEntity.INPUT_SLOT_2,56,33));
+            this.addSlot(new Slot(container,SoulMatrixBlockEntity.INPUT_SLOT_3,104,33));
+            this.addSlot(new Slot(container,SoulMatrixBlockEntity.INPUT_SLOT_4,80,57));
         }
         addPlayerInventory(playerInventory);
         addPlayerHotbar(playerInventory);
