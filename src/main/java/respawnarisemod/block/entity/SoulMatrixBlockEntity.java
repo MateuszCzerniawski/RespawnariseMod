@@ -12,19 +12,28 @@ import net.minecraft.server.level.ServerLevel;
 import net.minecraft.world.Containers;
 import net.minecraft.world.MenuProvider;
 import net.minecraft.world.SimpleContainer;
+import net.minecraft.world.entity.Entity;
+import net.minecraft.world.entity.EntityType;
+import net.minecraft.world.entity.Mob;
+import net.minecraft.world.entity.MobSpawnType;
 import net.minecraft.world.entity.player.Inventory;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.inventory.AbstractContainerMenu;
 import net.minecraft.world.inventory.ContainerData;
+import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.crafting.RecipeHolder;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.entity.BaseContainerBlockEntity;
 import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.minecraft.world.level.block.state.BlockState;
+import net.minecraft.world.phys.AABB;
 import net.neoforged.neoforge.items.ItemStackHandler;
 import org.jetbrains.annotations.Nullable;
+import respawnarisemod.item.components.SoulVisageComponent;
+import respawnarisemod.item.custom.SoulVisage;
 import respawnarisemod.screen.SoulMatrixMenu;
+import respawnarisemod.util.ModDataComponents;
 
 import java.util.Optional;
 
@@ -157,11 +166,142 @@ public class SoulMatrixBlockEntity extends BaseContainerBlockEntity implements M
 
     public void tick(Level level, BlockPos pos, BlockState state, SoulMatrixBlockEntity blockEntity) {
         if (!level.isClientSide() && level instanceof ServerLevel serverLevel) {
-            //TODO
+            int visagesCount = getVisagesCount();
+            if(canSpawn(pos)){
+                delayCounter++;
+            }
+            if(delayCounter >= DEFAULT_SPAWN_DELAY-(visagesCount-1)*SPAWN_DELAY_REDUCTION){
+                delayCounter=0;
+                var random = serverLevel.getRandom();
+                for(int i=0;i<DEFAULT_SPAWN_COUNT+(visagesCount-1)*SPAWN_COUNT_INCREASE;i++){
+                    int dx = random.nextInt(2*DEFAULT_RANGE+1) - DEFAULT_RANGE;
+                    int dz = random.nextInt(2*DEFAULT_RANGE+1) - DEFAULT_RANGE;
+                    BlockPos spawnPos = pos.offset(dx, 0, dz);
+                    EntityType type = getEntityType();
+                    if(type!=null){
+                        type.spawn(serverLevel,spawnPos, MobSpawnType.SPAWNER);
+                    }
+                }
+            }
         }
     }
     @Override
     public int getContainerSize() {
         return CONTAINER_SIZE;
+    }
+
+    private int getVisagesCount(){
+        int counter = 0;
+        EntityType type=null;
+        ItemStack stack1 =  itemStackHandler.getStackInSlot(INPUT_SLOT_1);
+        if(stack1!=null && !stack1.isEmpty()){
+            if(stack1.getItem() instanceof SoulVisage){
+                SoulVisageComponent comp1 = stack1.get(ModDataComponents.VISAGE_CONTENT);
+                if(comp1!=null && comp1.typeKey()!=null){
+                    EntityType type1 = EntityType.byString(comp1.typeKey()).get();
+                    if(type==null){
+                        type=type1;
+                    }
+                    if(type1==type){
+                        counter++;
+                    }else{
+                        return 0;
+                    }
+                }
+            }else{
+                return 0;
+            }
+        }
+        ItemStack stack2 =  itemStackHandler.getStackInSlot(INPUT_SLOT_1);
+        if(stack2!=null && !stack2.isEmpty()){
+            if(stack2.getItem() instanceof SoulVisage){
+                SoulVisageComponent comp2 = stack2.get(ModDataComponents.VISAGE_CONTENT);
+                if(comp2!=null && comp2.typeKey()!=null){
+                    EntityType type2 = EntityType.byString(comp2.typeKey()).get();
+                    if(type==null){
+                        type=type2;
+                    }
+                    if(type2==type){
+                        counter++;
+                    }else{
+                        return 0;
+                    }
+                }
+            }else{
+                return 0;
+            }
+        }
+        ItemStack stack3 =  itemStackHandler.getStackInSlot(INPUT_SLOT_1);
+        if(stack3!=null && !stack3.isEmpty()){
+            if(stack3.getItem() instanceof SoulVisage){
+                SoulVisageComponent comp3 = stack3.get(ModDataComponents.VISAGE_CONTENT);
+                if(comp3!=null && comp3.typeKey()!=null){
+                    EntityType type3 = EntityType.byString(comp3.typeKey()).get();
+                    if(type==null){
+                        type=type3;
+                    }
+                    if(type3==type){
+                        counter++;
+                    }else{
+                        return 0;
+                    }
+                }
+            }else{
+                return 0;
+            }
+        }
+        ItemStack stack4 =  itemStackHandler.getStackInSlot(INPUT_SLOT_1);
+        if(stack4!=null && !stack4.isEmpty()){
+            if(stack4.getItem() instanceof SoulVisage){
+                SoulVisageComponent comp4 = stack4.get(ModDataComponents.VISAGE_CONTENT);
+                if(comp4!=null && comp4.typeKey()!=null){
+                    EntityType type4 = EntityType.byString(comp4.typeKey()).get();
+                    if(type==null){
+                        type=type4;
+                    }
+                    if(type4==type){
+                        counter++;
+                    }else{
+                        return 0;
+                    }
+                }
+            }else{
+                return 0;
+            }
+        }
+        return counter;
+    }
+
+    private EntityType getEntityType(){
+        ItemStack stack1 =  itemStackHandler.getStackInSlot(INPUT_SLOT_1);
+        ItemStack stack2 =  itemStackHandler.getStackInSlot(INPUT_SLOT_1);
+        ItemStack stack3 =  itemStackHandler.getStackInSlot(INPUT_SLOT_1);
+        ItemStack stack4 =  itemStackHandler.getStackInSlot(INPUT_SLOT_1);
+        SoulVisageComponent comp1 = (stack1!=null && !stack1.isEmpty() && (stack1.getItem() instanceof SoulVisage))?stack1.get(ModDataComponents.VISAGE_CONTENT):null;
+        SoulVisageComponent comp2 = (stack2!=null && !stack2.isEmpty() && (stack2.getItem() instanceof SoulVisage))?stack2.get(ModDataComponents.VISAGE_CONTENT):null;
+        SoulVisageComponent comp3 = (stack3!=null && !stack3.isEmpty() && (stack3.getItem() instanceof SoulVisage))?stack3.get(ModDataComponents.VISAGE_CONTENT):null;
+        SoulVisageComponent comp4 = (stack4!=null && !stack4.isEmpty() && (stack4.getItem() instanceof SoulVisage))?stack4.get(ModDataComponents.VISAGE_CONTENT):null;
+        EntityType type1 = (comp1!=null && comp1.typeKey()!=null)?EntityType.byString(comp1.typeKey()).get():null;
+        if(type1!=null){
+            return type1;
+        }
+        EntityType type2 = (comp2!=null && comp2.typeKey()!=null)?EntityType.byString(comp2.typeKey()).get():null;
+        if(type2!=null){
+            return type2;
+        }
+        EntityType type3 = (comp3!=null && comp3.typeKey()!=null)?EntityType.byString(comp3.typeKey()).get():null;
+        if(type3!=null){
+            return type3;
+        }
+        EntityType type4 = (comp4!=null && comp4.typeKey()!=null)?EntityType.byString(comp4.typeKey()).get():null;
+        return type4;
+    }
+
+    private boolean canSpawn(BlockPos pos){
+        int detectionRange = isLongDistance?LONG_DISTANCE_PLAYER_DETECTION_RANGE:SHORT_DISTANCE_PLAYER_DETECTION_RANGE;
+        AABB box = new AABB(pos).inflate(detectionRange);
+        int players = level.getEntitiesOfClass(Player.class,box).size();
+        int count = level.getEntitiesOfClass(Mob.class,box).size();
+        return players>0 && count<NEARBY_ENTITIES_RESTRICTION;
     }
 }
