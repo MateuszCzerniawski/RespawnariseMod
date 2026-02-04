@@ -274,9 +274,9 @@ public class SoulMatrixBlockEntity extends BaseContainerBlockEntity implements M
 
     private EntityType getEntityType(){
         ItemStack stack1 =  itemStackHandler.getStackInSlot(INPUT_SLOT_1);
-        ItemStack stack2 =  itemStackHandler.getStackInSlot(INPUT_SLOT_1);
-        ItemStack stack3 =  itemStackHandler.getStackInSlot(INPUT_SLOT_1);
-        ItemStack stack4 =  itemStackHandler.getStackInSlot(INPUT_SLOT_1);
+        ItemStack stack2 =  itemStackHandler.getStackInSlot(INPUT_SLOT_2);
+        ItemStack stack3 =  itemStackHandler.getStackInSlot(INPUT_SLOT_3);
+        ItemStack stack4 =  itemStackHandler.getStackInSlot(INPUT_SLOT_4);
         SoulVisageComponent comp1 = (stack1!=null && !stack1.isEmpty() && (stack1.getItem() instanceof SoulVisage))?stack1.get(ModDataComponents.VISAGE_CONTENT):null;
         SoulVisageComponent comp2 = (stack2!=null && !stack2.isEmpty() && (stack2.getItem() instanceof SoulVisage))?stack2.get(ModDataComponents.VISAGE_CONTENT):null;
         SoulVisageComponent comp3 = (stack3!=null && !stack3.isEmpty() && (stack3.getItem() instanceof SoulVisage))?stack3.get(ModDataComponents.VISAGE_CONTENT):null;
