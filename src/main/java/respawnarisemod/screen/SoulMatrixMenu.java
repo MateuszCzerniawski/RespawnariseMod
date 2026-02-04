@@ -1,5 +1,6 @@
 package respawnarisemod.screen;
 
+import net.minecraft.core.BlockPos;
 import net.minecraft.network.FriendlyByteBuf;
 import net.minecraft.world.Container;
 import net.minecraft.world.SimpleContainer;
@@ -12,7 +13,11 @@ import net.minecraft.world.inventory.Slot;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
 import net.neoforged.neoforge.items.SlotItemHandler;
+import net.neoforged.neoforge.network.PacketDistributor;
+import respawnarisemod.RespawnariseMod;
 import respawnarisemod.block.entity.SoulMatrixBlockEntity;
+import respawnarisemod.util.SoulMatrixSetDistancePayload;
+import respawnarisemod.util.SoulMatrixSetMaimedPayload;
 
 public class SoulMatrixMenu extends AbstractContainerMenu {
 
@@ -21,8 +26,9 @@ public class SoulMatrixMenu extends AbstractContainerMenu {
     private final Level level;
     private final ContainerData data;
 
+
     public SoulMatrixMenu(int containerId, Inventory playerInventory, FriendlyByteBuf extraData) {
-        this(containerId, playerInventory,new SimpleContainer(4),new SimpleContainerData(3));
+        this(containerId, playerInventory,new SimpleContainer(4),new SimpleContainerData(6));
     }
 
     public SoulMatrixMenu(int containerId, Inventory playerInventory, Container container, ContainerData data){
@@ -97,5 +103,24 @@ public class SoulMatrixMenu extends AbstractContainerMenu {
     @Override
     public boolean stillValid(Player player) {
         return this.container.stillValid(player);
+    }
+
+    public void changeDistance(boolean value){
+        PacketDistributor.sendToServer(new SoulMatrixSetDistancePayload(getPos(),value));
+    }
+    public void changeMaimed(boolean value){
+        if(blockEntity==null){
+            return;
+        }
+        PacketDistributor.sendToServer(new SoulMatrixSetMaimedPayload(getPos(),value));
+    }
+    private BlockPos getPos(){
+        return blockEntity!=null?blockEntity.getBlockPos():new BlockPos(data.get(3),data.get(4),data.get(5));
+    }
+    public boolean getMaimed(){
+        return this.data.get(0)==1;
+    }
+    public boolean getDistance(){
+        return this.data.get(1)==1;
     }
 }

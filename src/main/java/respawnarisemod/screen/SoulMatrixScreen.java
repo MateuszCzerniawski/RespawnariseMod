@@ -2,13 +2,17 @@ package respawnarisemod.screen;
 
 import com.mojang.blaze3d.systems.RenderSystem;
 import net.minecraft.client.gui.GuiGraphics;
-import net.minecraft.client.gui.screens.Screen;
 import net.minecraft.client.gui.screens.inventory.AbstractContainerScreen;
 import net.minecraft.client.renderer.GameRenderer;
 import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.entity.player.Inventory;
+import net.neoforged.neoforge.network.PacketDistributor;
 import respawnarisemod.RespawnariseMod;
+import respawnarisemod.block.entity.SoulMatrixBlockEntity;
+import respawnarisemod.util.SoulMatrixSetDistancePayload;
+import respawnarisemod.util.SoulMatrixSetMaimedPayload;
+import respawnarisemod.util.ToggleWidget;
 
 public class SoulMatrixScreen extends AbstractContainerScreen<SoulMatrixMenu> {
 
@@ -17,6 +21,19 @@ public class SoulMatrixScreen extends AbstractContainerScreen<SoulMatrixMenu> {
                     "textures/gui/soul_matrix/soul_matrix_gui.png");
     public SoulMatrixScreen(SoulMatrixMenu menu, Inventory playerInventory, Component title) {
         super(menu, playerInventory, title);
+    }
+
+    @Override
+    protected void init() {
+        super.init();
+        addRenderableWidget(new ToggleWidget(
+                leftPos+15,topPos+21, 20,40,
+                menu.getMaimed(),menu::changeMaimed
+        ));
+        addRenderableWidget(new ToggleWidget(
+                leftPos+133,topPos+21, 20,40,
+               menu.getDistance(),menu::changeDistance
+        ));
     }
 
     @Override

@@ -76,6 +76,9 @@ public class SoulMatrixBlockEntity extends BaseContainerBlockEntity implements M
                     case 0 ->SoulMatrixBlockEntity.this.spawnMaimed?1:0;
                     case 1->SoulMatrixBlockEntity.this.isLongDistance?1:0;
                     case 2->SoulMatrixBlockEntity.this.delayCounter;
+                    case 3->SoulMatrixBlockEntity.this.getBlockPos().getX();
+                    case 4->SoulMatrixBlockEntity.this.getBlockPos().getY();
+                    case 5->SoulMatrixBlockEntity.this.getBlockPos().getZ();
                     default -> 0;
                 };
             }
@@ -86,12 +89,15 @@ public class SoulMatrixBlockEntity extends BaseContainerBlockEntity implements M
                     case 0 -> SoulMatrixBlockEntity.this.spawnMaimed = value==1;
                     case 1 -> SoulMatrixBlockEntity.this.isLongDistance = value==1;
                     case 2 -> SoulMatrixBlockEntity.this.delayCounter = value;
+                    default -> {
+                        return;
+                    }
                 }
             }
 
             @Override
             public int getCount() {
-                return 3;
+                return 6;
             }
         };
     }
@@ -303,5 +309,23 @@ public class SoulMatrixBlockEntity extends BaseContainerBlockEntity implements M
         int players = level.getEntitiesOfClass(Player.class,box).size();
         int count = level.getEntitiesOfClass(Mob.class,box).size();
         return players>0 && count<NEARBY_ENTITIES_RESTRICTION;
+    }
+
+    public boolean isSpawnMaimed() {
+        return spawnMaimed;
+    }
+
+    public void setSpawnMaimed(boolean spawnMaimed) {
+        this.spawnMaimed = spawnMaimed;
+        level.sendBlockUpdated(worldPosition,getBlockState(),getBlockState(),3);
+    }
+
+    public boolean isLongDistance() {
+        return isLongDistance;
+    }
+
+    public void setLongDistance(boolean longDistance) {
+        isLongDistance = longDistance;
+        level.sendBlockUpdated(worldPosition,getBlockState(),getBlockState(),3);
     }
 }
