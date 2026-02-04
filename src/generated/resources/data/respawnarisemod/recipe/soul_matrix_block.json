@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "B": {
+      "item": "minecraft:iron_bars"
+    },
+    "S": {
+      "item": "respawnarisemod:soul_visage"
+    }
+  },
+  "pattern": [
+    "BBB",
+    "BSB",
+    "BBB"
+  ],
+  "result": {
+    "count": 1,
+    "id": "respawnarisemod:soul_matrix_block"
+  }
+}

@@ -35,6 +35,14 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
                 .define('B',Items.BONE)
                 .unlockedBy("has_bone",has(Items.BONE))
                 .save(recipeOutput);
+        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModBlocks.SOUL_MATRIX_BLOCK.get())
+                .pattern("BBB")
+                .pattern("BSB")
+                .pattern("BBB")
+                .define('B', Items.IRON_BARS)
+                .define('S',ModItems.SOUL_VISAGE.get())
+                .unlockedBy("has_soul_visage",has(ModItems.SOUL_VISAGE.get()))
+                .save(recipeOutput);
         /*ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC,ModItems.YOUR_ITEM_HERE.get(),9)
                 .requires(ModItems.YOUR_ITEM_HERE)
                 .unlockedBy("has_YOUR_ITEM_HERE",has(ModItems.YOUR_ITEM_HERE))
