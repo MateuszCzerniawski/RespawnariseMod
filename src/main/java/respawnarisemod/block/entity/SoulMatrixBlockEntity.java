@@ -12,10 +12,7 @@ import net.minecraft.server.level.ServerLevel;
 import net.minecraft.world.Containers;
 import net.minecraft.world.MenuProvider;
 import net.minecraft.world.SimpleContainer;
-import net.minecraft.world.entity.Entity;
-import net.minecraft.world.entity.EntityType;
-import net.minecraft.world.entity.Mob;
-import net.minecraft.world.entity.MobSpawnType;
+import net.minecraft.world.entity.*;
 import net.minecraft.world.entity.player.Inventory;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.inventory.AbstractContainerMenu;
@@ -30,6 +27,7 @@ import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.phys.AABB;
 import net.neoforged.neoforge.items.ItemStackHandler;
 import org.jetbrains.annotations.Nullable;
+import respawnarisemod.RespawnariseMod;
 import respawnarisemod.item.components.SoulVisageComponent;
 import respawnarisemod.item.custom.SoulVisage;
 import respawnarisemod.screen.SoulMatrixMenu;
@@ -76,9 +74,6 @@ public class SoulMatrixBlockEntity extends BaseContainerBlockEntity implements M
                     case 0 ->SoulMatrixBlockEntity.this.spawnMaimed?1:0;
                     case 1->SoulMatrixBlockEntity.this.isLongDistance?1:0;
                     case 2->SoulMatrixBlockEntity.this.delayCounter;
-                    case 3->SoulMatrixBlockEntity.this.getBlockPos().getX();
-                    case 4->SoulMatrixBlockEntity.this.getBlockPos().getY();
-                    case 5->SoulMatrixBlockEntity.this.getBlockPos().getZ();
                     default -> 0;
                 };
             }
@@ -97,7 +92,7 @@ public class SoulMatrixBlockEntity extends BaseContainerBlockEntity implements M
 
             @Override
             public int getCount() {
-                return 6;
+                return 3;
             }
         };
     }
@@ -151,12 +146,16 @@ public class SoulMatrixBlockEntity extends BaseContainerBlockEntity implements M
     protected void saveAdditional(CompoundTag tag, HolderLookup.Provider registries) {
         super.saveAdditional(tag, registries);
         tag.put("inventory",itemStackHandler.serializeNBT(registries));
+        tag.putBoolean("maimed",this.spawnMaimed);
+        tag.putBoolean("long_distance",this.isLongDistance);
     }
 
     @Override
     protected void loadAdditional(CompoundTag tag, HolderLookup.Provider registries) {
         super.loadAdditional(tag, registries);
         itemStackHandler.deserializeNBT(registries,tag.getCompound("inventory"));
+        this.spawnMaimed = tag.getBoolean("maimed");
+        this.isLongDistance = tag.getBoolean("long_distance");
     }
 
     @Override
@@ -185,7 +184,10 @@ public class SoulMatrixBlockEntity extends BaseContainerBlockEntity implements M
                     BlockPos spawnPos = pos.offset(dx, 0, dz);
                     EntityType type = getEntityType();
                     if(type!=null){
-                        type.spawn(serverLevel,spawnPos, MobSpawnType.SPAWNER);
+                        Entity entity =  type.spawn(serverLevel,spawnPos, MobSpawnType.SPAWNER);
+                        if(this.spawnMaimed && entity instanceof LivingEntity livingEntity){
+                            livingEntity.setHealth(1);
+                        }
                     }
                 }
             }
@@ -317,6 +319,8 @@ public class SoulMatrixBlockEntity extends BaseContainerBlockEntity implements M
 
     public void setSpawnMaimed(boolean spawnMaimed) {
         this.spawnMaimed = spawnMaimed;
+        data.set(0,spawnMaimed?1:0);
+        setChanged();
         level.sendBlockUpdated(worldPosition,getBlockState(),getBlockState(),3);
     }
 
@@ -326,6 +330,8 @@ public class SoulMatrixBlockEntity extends BaseContainerBlockEntity implements M
 
     public void setLongDistance(boolean longDistance) {
         isLongDistance = longDistance;
+        data.set(1,spawnMaimed?1:0);
+        setChanged();
         level.sendBlockUpdated(worldPosition,getBlockState(),getBlockState(),3);
     }
 }

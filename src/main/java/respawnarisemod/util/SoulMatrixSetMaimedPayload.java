@@ -27,7 +27,11 @@ public record SoulMatrixSetMaimedPayload(BlockPos pos, boolean value) implements
             BlockEntity be = level.getBlockEntity(payload.pos());
             if (be instanceof SoulMatrixBlockEntity blockEntity) {
                 blockEntity.setSpawnMaimed(payload.value());
+            }else{
+                RespawnariseMod.log(be.toString());
             }
+        }else{
+            RespawnariseMod.log(context.player().level().toString());
         }
     });
     @Override

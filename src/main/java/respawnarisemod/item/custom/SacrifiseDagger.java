@@ -19,7 +19,7 @@ import java.util.List;
 public class SacrifiseDagger extends SwordItem {
     public SacrifiseDagger() {
         super(Tiers.WOOD,(new Item.Properties())
-                .attributes(SwordItem.createAttributes(Tiers.WOOD, 0, -3.0F))
+                .attributes(SwordItem.createAttributes(Tiers.WOOD, 4, -3.0F))
                 .component(ModDataComponents.DAGGER_CONTENT.get(), SacrifiseDaggerComponent.empty())
         );
     }

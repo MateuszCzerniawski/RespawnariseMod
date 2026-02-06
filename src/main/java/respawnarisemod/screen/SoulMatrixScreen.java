@@ -1,6 +1,7 @@
 package respawnarisemod.screen;
 
 import com.mojang.blaze3d.systems.RenderSystem;
+import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.GuiGraphics;
 import net.minecraft.client.gui.screens.inventory.AbstractContainerScreen;
 import net.minecraft.client.renderer.GameRenderer;
@@ -27,11 +28,11 @@ public class SoulMatrixScreen extends AbstractContainerScreen<SoulMatrixMenu> {
     protected void init() {
         super.init();
         addRenderableWidget(new ToggleWidget(
-                leftPos+15,topPos+21, 20,40,
+                leftPos+15,topPos+30, 20,40,
                 menu.getMaimed(),menu::changeMaimed
         ));
         addRenderableWidget(new ToggleWidget(
-                leftPos+133,topPos+21, 20,40,
+                leftPos+133,topPos+30, 20,40,
                menu.getDistance(),menu::changeDistance
         ));
     }

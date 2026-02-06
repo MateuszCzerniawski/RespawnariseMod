@@ -15,7 +15,7 @@ public class ModMenuTypes {
             DeferredRegister.create(Registries.MENU, RespawnariseMod.MOD_ID);
 
     public static final DeferredHolder<MenuType<?>,MenuType<SoulMatrixMenu>> SOUL_MATRIX_MENU =
-            registerMenuType("alloy_smelter_menu",SoulMatrixMenu::new);
+            registerMenuType("soul_matrix_menu",SoulMatrixMenu::new);
 
 
     private static <T extends AbstractContainerMenu>DeferredHolder<MenuType<?>,MenuType<T>> registerMenuType(String name,IContainerFactory<T> factory){

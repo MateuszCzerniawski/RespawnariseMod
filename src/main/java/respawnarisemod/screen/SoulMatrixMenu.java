@@ -1,5 +1,6 @@
 package respawnarisemod.screen;
 
+import net.minecraft.client.Minecraft;
 import net.minecraft.core.BlockPos;
 import net.minecraft.network.FriendlyByteBuf;
 import net.minecraft.world.Container;
@@ -28,7 +29,8 @@ public class SoulMatrixMenu extends AbstractContainerMenu {
 
 
     public SoulMatrixMenu(int containerId, Inventory playerInventory, FriendlyByteBuf extraData) {
-        this(containerId, playerInventory,new SimpleContainer(4),new SimpleContainerData(6));
+        this(containerId, playerInventory,new SimpleContainer(4),new SimpleContainerData(3));
+        blockEntity = (SoulMatrixBlockEntity) Minecraft.getInstance().level.getBlockEntity(extraData.readBlockPos());
     }
 
     public SoulMatrixMenu(int containerId, Inventory playerInventory, Container container, ContainerData data){
@@ -109,18 +111,15 @@ public class SoulMatrixMenu extends AbstractContainerMenu {
         PacketDistributor.sendToServer(new SoulMatrixSetDistancePayload(getPos(),value));
     }
     public void changeMaimed(boolean value){
-        if(blockEntity==null){
-            return;
-        }
         PacketDistributor.sendToServer(new SoulMatrixSetMaimedPayload(getPos(),value));
     }
     private BlockPos getPos(){
-        return blockEntity!=null?blockEntity.getBlockPos():new BlockPos(data.get(3),data.get(4),data.get(5));
+        return blockEntity.getBlockPos();
     }
     public boolean getMaimed(){
-        return this.data.get(0)==1;
+        return this.blockEntity.isSpawnMaimed();
     }
     public boolean getDistance(){
-        return this.data.get(1)==1;
+        return this.blockEntity.isLongDistance();
     }
 }

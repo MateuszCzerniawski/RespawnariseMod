@@ -2,6 +2,7 @@ package respawnarisemod.block.custom;
 
 import com.mojang.serialization.MapCodec;
 import net.minecraft.core.BlockPos;
+import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResult;
 import net.minecraft.world.ItemInteractionResult;
@@ -18,6 +19,7 @@ import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.StateDefinition;
 import net.minecraft.world.level.block.state.properties.EnumProperty;
 import net.minecraft.core.Direction;
+//import net.neoforged.neoforge.network.NetworkHooks;
 import net.minecraft.world.level.material.FluidState;
 import net.minecraft.world.phys.BlockHitResult;
 import org.jetbrains.annotations.Nullable;
@@ -80,11 +82,12 @@ public class SoulMatrixBlock extends BaseEntityBlock {
     private void openMenu(Level level, BlockPos pos, Player player){
         if(!level.isClientSide){
             BlockEntity blockentity = level.getBlockEntity(pos);
-            if (blockentity instanceof SoulMatrixBlockEntity) {
-                player.openMenu((MenuProvider)blockentity); //TODO
+            if (blockentity instanceof SoulMatrixBlockEntity soulMatrixBlockEntity) {
+                player.openMenu((MenuProvider)blockentity, buf->buf.writeBlockPos(soulMatrixBlockEntity.getBlockPos()));
             }
         }
     }
+
 
     @SuppressWarnings("unchecked")
     @Override
