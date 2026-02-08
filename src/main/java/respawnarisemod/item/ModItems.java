@@ -10,6 +10,7 @@ import respawnarisemod.RespawnariseMod;
 import respawnarisemod.item.custom.ModArmorMaterials;
 import respawnarisemod.item.custom.SacrifiseDagger;
 import respawnarisemod.item.custom.SoulVisage;
+import respawnarisemod.item.custom.WingedSoulTouchedChestplate;
 
 public class ModItems {
 
@@ -33,6 +34,9 @@ public class ModItems {
     public static final DeferredItem<ArmorItem> SOUL_TOUCHED_BOOTS = ITEMS.register("soul_touched_boots",
             () -> new ArmorItem(ModArmorMaterials.SOUL_TOUCHED, ArmorItem.Type.BOOTS,
                     new Item.Properties().durability(ArmorItem.Type.BOOTS.getDurability(40))));
+
+    public static final DeferredItem<WingedSoulTouchedChestplate> WINGED_SOUL_TOUCHED_CHESTPLATE =
+            ITEMS.registerItem("winged_soul_touched_chestplate",(p)->new WingedSoulTouchedChestplate());
 
     public static void register(IEventBus eventBus){
         ITEMS.register(eventBus);

@@ -43,11 +43,11 @@ public class ModItemModelProvider extends ItemModelProvider {
         trimmedArmorItem(ModItems.SOUL_TOUCHED_CHESTPLATE);
         trimmedArmorItem(ModItems.SOUL_TOUCHED_LEGGINGS);
         trimmedArmorItem(ModItems.SOUL_TOUCHED_BOOTS);
-
+        trimmedArmorItem(ModItems.WINGED_SOUL_TOUCHED_CHESTPLATE);
     }
 
     // Shoutout to El_Redstoniano for making this
-    private void trimmedArmorItem(DeferredItem<ArmorItem> itemDeferredItem) {
+    private void trimmedArmorItem(DeferredItem<? extends ArmorItem> itemDeferredItem) {
         ArmorItem armorItem =itemDeferredItem.get();
         final String MOD_ID = RespawnariseMod.MOD_ID;
         trimMaterials.forEach((trimMaterial, value) -> {

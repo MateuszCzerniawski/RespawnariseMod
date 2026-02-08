@@ -37,7 +37,8 @@ public class ModItemTagsProvider extends ItemTagsProvider {
                 .add(ModItems.SOUL_TOUCHED_HELMET.get())
                 .add(ModItems.SOUL_TOUCHED_CHESTPLATE.get())
                 .add(ModItems.SOUL_TOUCHED_LEGGINGS.get())
-                .add(ModItems.SOUL_TOUCHED_BOOTS.get());
+                .add(ModItems.SOUL_TOUCHED_BOOTS.get())
+                .add(ModItems.WINGED_SOUL_TOUCHED_CHESTPLATE.get());
 
     }
 }

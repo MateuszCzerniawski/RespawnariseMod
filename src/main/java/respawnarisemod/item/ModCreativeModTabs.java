@@ -24,7 +24,8 @@ public class ModCreativeModTabs {
             ModItems.SOUL_TOUCHED_HELMET,
             ModItems.SOUL_TOUCHED_CHESTPLATE,
             ModItems.SOUL_TOUCHED_LEGGINGS,
-            ModItems.SOUL_TOUCHED_BOOTS
+            ModItems.SOUL_TOUCHED_BOOTS,
+            ModItems.WINGED_SOUL_TOUCHED_CHESTPLATE
             );
     private static Supplier<CreativeModeTab> buildTab(String name, ItemLike icon, ItemLike... items){
         CreativeModeTab.Builder builder= CreativeModeTab.builder();
