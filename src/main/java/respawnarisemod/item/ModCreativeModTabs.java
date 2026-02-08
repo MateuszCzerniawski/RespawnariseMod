@@ -18,15 +18,17 @@ public class ModCreativeModTabs {
 
     public static final Supplier<CreativeModeTab> RESPAWNARISE_TAB = buildTab("respawnarise_tab",ModItems.SOUL_VISAGE,
             ModItems.SOUL_VISAGE,
-            ModItems.SACRIFISE_DAGGER,
             ModBlocks.SOUL_MATRIX_BLOCK,
             ModItems.SOUL_TOUCHED_CORE,
+            ModItems.SOUL_TOUCHED_ROD,
             ModItems.SOUL_TOUCHED_HELMET,
             ModItems.SOUL_TOUCHED_CHESTPLATE,
+            ModItems.WINGED_SOUL_TOUCHED_CHESTPLATE,
             ModItems.SOUL_TOUCHED_LEGGINGS,
             ModItems.SOUL_TOUCHED_BOOTS,
-            ModItems.WINGED_SOUL_TOUCHED_CHESTPLATE,
-            ModItems.MULTI_TOOL
+            ModItems.MULTI_TOOL,
+            ModItems.SACRIFISE_DAGGER
+
             );
     private static Supplier<CreativeModeTab> buildTab(String name, ItemLike icon, ItemLike... items){
         CreativeModeTab.Builder builder= CreativeModeTab.builder();

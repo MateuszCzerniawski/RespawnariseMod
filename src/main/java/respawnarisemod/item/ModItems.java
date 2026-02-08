@@ -37,6 +37,8 @@ public class ModItems {
 
     public static final DeferredItem<Item> MULTI_TOOL= ITEMS.registerItem("multi_tool",(p)->new MultiTool());
 
+    public static final DeferredItem<Item> SOUL_TOUCHED_ROD = ITEMS.registerSimpleItem("soul_touched_rod");
+
     public static void register(IEventBus eventBus){
         ITEMS.register(eventBus);
     }

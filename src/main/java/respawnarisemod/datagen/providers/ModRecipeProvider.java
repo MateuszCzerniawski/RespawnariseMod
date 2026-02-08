@@ -46,32 +46,33 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
                 .unlockedBy("has_soul_visage",has(ModItems.SOUL_VISAGE.get()))
                 .save(recipeOutput);
         ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModItems.SOUL_TOUCHED_CORE.get())
-                .pattern("BWB")
-                .pattern("WNW")
-                .pattern("BWB")
+                .pattern("BBB")
+                .pattern("BNB")
+                .pattern("BBB")
                 .define('N', Items.NETHER_STAR)
-                .define('B', Items.BLAZE_ROD)
-                .define('W',Items.BREEZE_ROD)
+                .define('B', ModItems.SOUL_TOUCHED_ROD.get())
                 .unlockedBy("has_soul_visage",has(ModItems.SOUL_VISAGE.get()))
                 .save(recipeOutput);
-        /*SmithingTransformRecipeBuilder.smithing(
-                        Ingredient.of(ModItems.SOUL_VISAGE),
-                        Ingredient.of(Items.NETHERITE_HELMET),
-                        Ingredient.of(ModItems.SOUL_TOUCHED_CORE),
-                        RecipeCategory.TOOLS,
-                        ModItems.SOUL_TOUCHED_HELMET.get()
-                )
-                .unlocks("has_core", this.has(ModItems.SOUL_TOUCHED_CORE.get()))
-                .save(recipeOutput, "soul_touched_helmet_smithing");*/
         smithingRecipe(recipeOutput,ModItems.SOUL_VISAGE.get(),Items.NETHERITE_HELMET,ModItems.SOUL_TOUCHED_CORE.get(),ModItems.SOUL_TOUCHED_HELMET.get());
         smithingRecipe(recipeOutput,ModItems.SOUL_VISAGE.get(),Items.NETHERITE_CHESTPLATE,ModItems.SOUL_TOUCHED_CORE.get(),ModItems.SOUL_TOUCHED_CHESTPLATE.get());
         smithingRecipe(recipeOutput,ModItems.SOUL_VISAGE.get(),Items.NETHERITE_LEGGINGS,ModItems.SOUL_TOUCHED_CORE.get(),ModItems.SOUL_TOUCHED_LEGGINGS.get());
         smithingRecipe(recipeOutput,ModItems.SOUL_VISAGE.get(),Items.NETHERITE_BOOTS,ModItems.SOUL_TOUCHED_CORE.get(),ModItems.SOUL_TOUCHED_BOOTS.get());
         smithingRecipe(recipeOutput,Items.ELYTRA,ModItems.SOUL_TOUCHED_CHESTPLATE.get(),Items.NETHERITE_INGOT,ModItems.WINGED_SOUL_TOUCHED_CHESTPLATE.get());
-        /*ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC,ModItems.YOUR_ITEM_HERE.get(),9)
-                .requires(ModItems.YOUR_ITEM_HERE)
-                .unlockedBy("has_YOUR_ITEM_HERE",has(ModItems.YOUR_ITEM_HERE))
-                .save(recipeOutput);*/
+        ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC,ModItems.SOUL_TOUCHED_ROD.get(),2)
+                .requires(Items.BLAZE_ROD)
+                .requires(Items.SOUL_SAND)
+                .requires(Items.BREEZE_ROD)
+                .unlockedBy("has_rod",has(Items.BLAZE_ROD))
+                .save(recipeOutput);
+        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModItems.MULTI_TOOL.get())
+                .pattern("NCN")
+                .pattern("NR ")
+                .pattern(" R ")
+                .define('N', Items.NETHERITE_INGOT)
+                .define('C', ModItems.SOUL_TOUCHED_CORE.get())
+                .define('R', ModItems.SOUL_TOUCHED_ROD.get())
+                .unlockedBy("has_core",has(ModItems.SOUL_TOUCHED_CORE.get()))
+                .save(recipeOutput);
 
 
     }

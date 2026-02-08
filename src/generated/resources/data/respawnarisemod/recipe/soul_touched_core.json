@@ -3,19 +3,16 @@
   "category": "misc",
   "key": {
     "B": {
-      "item": "minecraft:blaze_rod"
+      "item": "respawnarisemod:soul_touched_rod"
     },
     "N": {
       "item": "minecraft:nether_star"
-    },
-    "W": {
-      "item": "minecraft:breeze_rod"
     }
   },
   "pattern": [
-    "BWB",
-    "WNW",
-    "BWB"
+    "BBB",
+    "BNB",
+    "BBB"
   ],
   "result": {
     "count": 1,
