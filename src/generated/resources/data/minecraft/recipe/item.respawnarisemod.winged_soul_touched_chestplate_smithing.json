@@ -1,7 +1,7 @@
 {
   "type": "minecraft:smithing_transform",
   "addition": {
-    "item": "minecraft:elytra"
+    "item": "minecraft:netherite_ingot"
   },
   "base": {
     "item": "respawnarisemod:soul_touched_chestplate"
@@ -11,6 +11,6 @@
     "id": "respawnarisemod:winged_soul_touched_chestplate"
   },
   "template": {
-    "item": "respawnarisemod:soul_visage"
+    "item": "minecraft:elytra"
   }
 }

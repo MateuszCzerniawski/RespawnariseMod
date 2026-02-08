@@ -1,11 +1,11 @@
 {
   "parent": "minecraft:recipes/root",
   "criteria": {
-    "has_item.respawnarisemod.soul_visage": {
+    "has_item.minecraft.elytra": {
       "conditions": {
         "items": [
           {
-            "items": "respawnarisemod:soul_visage"
+            "items": "minecraft:elytra"
           }
         ]
       },
@@ -21,7 +21,7 @@
   "requirements": [
     [
       "has_the_recipe",
-      "has_item.respawnarisemod.soul_visage"
+      "has_item.minecraft.elytra"
     ]
   ],
   "rewards": {

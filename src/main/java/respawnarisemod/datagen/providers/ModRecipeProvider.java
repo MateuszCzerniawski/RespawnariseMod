@@ -67,7 +67,7 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
         smithingRecipe(recipeOutput,ModItems.SOUL_VISAGE.get(),Items.NETHERITE_CHESTPLATE,ModItems.SOUL_TOUCHED_CORE.get(),ModItems.SOUL_TOUCHED_CHESTPLATE.get());
         smithingRecipe(recipeOutput,ModItems.SOUL_VISAGE.get(),Items.NETHERITE_LEGGINGS,ModItems.SOUL_TOUCHED_CORE.get(),ModItems.SOUL_TOUCHED_LEGGINGS.get());
         smithingRecipe(recipeOutput,ModItems.SOUL_VISAGE.get(),Items.NETHERITE_BOOTS,ModItems.SOUL_TOUCHED_CORE.get(),ModItems.SOUL_TOUCHED_BOOTS.get());
-        smithingRecipe(recipeOutput,ModItems.SOUL_VISAGE.get(),ModItems.SOUL_TOUCHED_CHESTPLATE.get(),Items.ELYTRA,ModItems.WINGED_SOUL_TOUCHED_CHESTPLATE.get());
+        smithingRecipe(recipeOutput,Items.ELYTRA,ModItems.SOUL_TOUCHED_CHESTPLATE.get(),Items.NETHERITE_INGOT,ModItems.WINGED_SOUL_TOUCHED_CHESTPLATE.get());
         /*ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC,ModItems.YOUR_ITEM_HERE.get(),9)
                 .requires(ModItems.YOUR_ITEM_HERE)
                 .unlockedBy("has_YOUR_ITEM_HERE",has(ModItems.YOUR_ITEM_HERE))
