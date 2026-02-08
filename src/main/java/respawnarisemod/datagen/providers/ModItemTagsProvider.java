@@ -22,23 +22,19 @@ public class ModItemTagsProvider extends ItemTagsProvider {
 
     @Override
     protected void addTags(HolderLookup.Provider provider) {
-
-        /*tag(ItemTags.SWORDS)
-                .add(ModItems.BISMUTH_SWORD.get());
-        tag(ItemTags.PICKAXES)
-                .add(ModItems.BISMUTH_PICKAXE.get());
-        tag(ItemTags.SHOVELS)
-                .add(ModItems.BISMUTH_SHOVEL.get());
-        tag(ItemTags.AXES)
-                .add(ModItems.BISMUTH_AXE.get());
-        tag(ItemTags.HOES)
-                .add(ModItems.BISMUTH_HOE.get());*/
         this.tag(ItemTags.TRIMMABLE_ARMOR)
                 .add(ModItems.SOUL_TOUCHED_HELMET.get())
                 .add(ModItems.SOUL_TOUCHED_CHESTPLATE.get())
                 .add(ModItems.SOUL_TOUCHED_LEGGINGS.get())
                 .add(ModItems.SOUL_TOUCHED_BOOTS.get())
                 .add(ModItems.WINGED_SOUL_TOUCHED_CHESTPLATE.get());
-
+        this.tag(ItemTags.ARMOR_ENCHANTABLE)
+                .add(ModItems.SOUL_TOUCHED_HELMET.get())
+                .add(ModItems.SOUL_TOUCHED_CHESTPLATE.get())
+                .add(ModItems.SOUL_TOUCHED_LEGGINGS.get())
+                .add(ModItems.SOUL_TOUCHED_BOOTS.get())
+                .add(ModItems.WINGED_SOUL_TOUCHED_CHESTPLATE.get());
+        this.tag(ItemTags.SWORDS)
+                .add(ModItems.SACRIFISE_DAGGER.get());
     }
 }
