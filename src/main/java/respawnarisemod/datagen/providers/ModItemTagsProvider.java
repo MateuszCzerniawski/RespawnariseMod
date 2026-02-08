@@ -36,5 +36,11 @@ public class ModItemTagsProvider extends ItemTagsProvider {
                 .add(ModItems.WINGED_SOUL_TOUCHED_CHESTPLATE.get());
         this.tag(ItemTags.SWORDS)
                 .add(ModItems.SACRIFISE_DAGGER.get());
+        this.tag(ItemTags.PICKAXES)
+                .add(ModItems.MULTI_TOOL.get());
+        this.tag(ItemTags.AXES)
+                .add(ModItems.MULTI_TOOL.get());
+        this.tag(ItemTags.SHOVELS)
+                .add(ModItems.MULTI_TOOL.get());
     }
 }

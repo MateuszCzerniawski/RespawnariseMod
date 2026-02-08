@@ -1,4 +1,7 @@
-// 1.21.1	2026-02-08T16:44:30.6600715	Tags for minecraft:item mod id respawnarisemod
+// 1.21.1	2026-02-08T23:23:53.8748775	Tags for minecraft:item mod id respawnarisemod
+8bbd18b77e1097101ee294a2f3e7125ffcf38e1b data/minecraft/tags/item/axes.json
 2d711d440d599ddf8703d72f3ffad74060f4f244 data/minecraft/tags/item/enchantable/armor.json
+8bbd18b77e1097101ee294a2f3e7125ffcf38e1b data/minecraft/tags/item/pickaxes.json
+8bbd18b77e1097101ee294a2f3e7125ffcf38e1b data/minecraft/tags/item/shovels.json
 7ef6e143f859aeeaa6b00f3dc33a8d2f77db40ea data/minecraft/tags/item/swords.json
 2d711d440d599ddf8703d72f3ffad74060f4f244 data/minecraft/tags/item/trimmable_armor.json

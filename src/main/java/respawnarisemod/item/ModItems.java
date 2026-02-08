@@ -7,10 +7,7 @@ import net.neoforged.bus.api.IEventBus;
 import net.neoforged.neoforge.registries.DeferredItem;
 import net.neoforged.neoforge.registries.DeferredRegister;
 import respawnarisemod.RespawnariseMod;
-import respawnarisemod.item.custom.ModArmorMaterials;
-import respawnarisemod.item.custom.SacrifiseDagger;
-import respawnarisemod.item.custom.SoulVisage;
-import respawnarisemod.item.custom.WingedSoulTouchedChestplate;
+import respawnarisemod.item.custom.*;
 
 public class ModItems {
 
@@ -37,6 +34,8 @@ public class ModItems {
 
     public static final DeferredItem<WingedSoulTouchedChestplate> WINGED_SOUL_TOUCHED_CHESTPLATE =
             ITEMS.registerItem("winged_soul_touched_chestplate",(p)->new WingedSoulTouchedChestplate());
+
+    public static final DeferredItem<Item> MULTI_TOOL= ITEMS.registerItem("multi_tool",(p)->new MultiTool());
 
     public static void register(IEventBus eventBus){
         ITEMS.register(eventBus);

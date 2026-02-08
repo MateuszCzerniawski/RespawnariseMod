@@ -44,6 +44,7 @@ public class ModItemModelProvider extends ItemModelProvider {
         trimmedArmorItem(ModItems.SOUL_TOUCHED_LEGGINGS);
         trimmedArmorItem(ModItems.SOUL_TOUCHED_BOOTS);
         trimmedArmorItem(ModItems.WINGED_SOUL_TOUCHED_CHESTPLATE);
+        handheldItem(ModItems.MULTI_TOOL.get());
     }
 
     // Shoutout to El_Redstoniano for making this
