@@ -1,0 +1,24 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "B": {
+      "item": "minecraft:blaze_rod"
+    },
+    "N": {
+      "item": "minecraft:nether_star"
+    },
+    "W": {
+      "item": "minecraft:breeze_rod"
+    }
+  },
+  "pattern": [
+    "BWB",
+    "WNW",
+    "BWB"
+  ],
+  "result": {
+    "count": 1,
+    "id": "respawnarisemod:soul_touched_core"
+  }
+}

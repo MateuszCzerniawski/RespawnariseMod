@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:smithing_transform",
+  "addition": {
+    "item": "respawnarisemod:soul_touched_core"
+  },
+  "base": {
+    "item": "minecraft:netherite_boots"
+  },
+  "result": {
+    "count": 1,
+    "id": "respawnarisemod:soul_touched_boots"
+  },
+  "template": {
+    "item": "respawnarisemod:soul_visage"
+  }
+}

@@ -9,13 +9,11 @@ import net.neoforged.api.distmarker.Dist;
 import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.fml.common.EventBusSubscriber;
 import net.neoforged.fml.common.Mod;
+import net.neoforged.neoforge.common.data.BlockTagsProvider;
 import net.neoforged.neoforge.common.data.ExistingFileHelper;
 import net.neoforged.neoforge.data.event.GatherDataEvent;
 import respawnarisemod.RespawnariseMod;
-import respawnarisemod.datagen.providers.ModBlockLootTableProvider;
-import respawnarisemod.datagen.providers.ModBlockStateProvider;
-import respawnarisemod.datagen.providers.ModItemModelProvider;
-import respawnarisemod.datagen.providers.ModRecipeProvider;
+import respawnarisemod.datagen.providers.*;
 
 import java.util.Collections;
 import java.util.List;
@@ -41,6 +39,9 @@ public class DataGenerators {
                 lookupProvider
         ));
         generator.addProvider(event.includeServer(), new ModRecipeProvider(packOutput,lookupProvider));
+        BlockTagsProvider blockTagsProvider = new ModBlockTagProvider(packOutput, lookupProvider, existingFileHelper);
+        generator.addProvider(event.includeServer(), blockTagsProvider);
+        generator.addProvider(event.includeServer(), new ModItemTagsProvider(packOutput, lookupProvider, blockTagsProvider.contentsGetter(), existingFileHelper));
         generator.addProvider(event.includeClient(), new ModItemModelProvider(packOutput,existingFileHelper));
         generator.addProvider(event.includeClient(), new ModBlockStateProvider(packOutput,existingFileHelper));
     }

@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_item.respawnarisemod.soul_visage": {
+      "conditions": {
+        "items": [
+          {
+            "items": "respawnarisemod:soul_visage"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "minecraft:item.respawnarisemod.soul_touched_leggings_smithing"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_item.respawnarisemod.soul_visage"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "minecraft:item.respawnarisemod.soul_touched_leggings_smithing"
+    ]
+  }
+}

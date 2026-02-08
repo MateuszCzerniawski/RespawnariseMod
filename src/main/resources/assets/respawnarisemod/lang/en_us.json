@@ -1,6 +1,11 @@
 {
   "item.respawnarisemod.soul_visage": "Soul Visage",
   "item.respawnarisemod.sacrifise_dagger": "Sacrifise Dagger",
+  "item.respawnarisemod.soul_touched_core": "Soul Touched Core",
+  "item.respawnarisemod.soul_touched_helmet": "Soul Touched Helmet",
+  "item.respawnarisemod.soul_touched_chestplate": "Soul Touched Chestplate",
+  "item.respawnarisemod.soul_touched_leggings": "Soul Touched Leggings",
+  "item.respawnarisemod.soul_touched_boots": "Soul Touched Boots",
   "creativetab.respawnarisemod.respawnarise_tab": "Respawnarise",
   "block.respawnarisemod.soul_matrix": "Soul Matrix",
   "block.respawnarisemod.soul_matrix_block": "Soul Matrix"
