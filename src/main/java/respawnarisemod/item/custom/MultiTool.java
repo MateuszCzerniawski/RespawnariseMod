@@ -41,7 +41,7 @@ public class MultiTool extends DiggerItem {
 
     public MultiTool() {
         super(ModToolTiers.SOUL_TOUCHED_TIER, BlockTags.MINEABLE_WITH_PICKAXE,
-                (new Item.Properties()).fireResistant().attributes(AxeItem.createAttributes(ModToolTiers.SOUL_TOUCHED_TIER, 6.0F, -3.0F)));
+                (new Item.Properties()).fireResistant().attributes(AxeItem.createAttributes(ModToolTiers.SOUL_TOUCHED_TIER, 4.0F, -3.0F)));
     }
     public boolean canPerformAction(ItemStack stack, ItemAbility itemAbility) {
         boolean pickaxeAbility = ItemAbilities.DEFAULT_PICKAXE_ACTIONS.contains(itemAbility);
