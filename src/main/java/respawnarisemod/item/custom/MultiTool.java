@@ -61,7 +61,8 @@ public class MultiTool extends DiggerItem {
         boolean withPickaxe = state.is(BlockTags.MINEABLE_WITH_PICKAXE);
         boolean withAxe = state.is(BlockTags.MINEABLE_WITH_AXE);
         boolean withShovel = state.is(BlockTags.MINEABLE_WITH_SHOVEL);
-        float speed = (withPickaxe || withAxe || withShovel)?ModToolTiers.SOUL_TOUCHED_TIER.getSpeed():super.getDestroySpeed(stack,state);
+        boolean withHoe = state.is(BlockTags.MINEABLE_WITH_HOE);
+        float speed = (withPickaxe || withAxe || withShovel || withHoe)?ModToolTiers.SOUL_TOUCHED_TIER.getSpeed():super.getDestroySpeed(stack,state);
         RespawnariseMod.log(String.valueOf(speed));
         return speed;
     }

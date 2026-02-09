@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:item/handheld",
+  "textures": {
+    "layer0": "respawnarisemod:item/soul_touched_sword"
+  }
+}

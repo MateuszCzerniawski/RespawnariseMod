@@ -39,6 +39,8 @@ public class ModItems {
 
     public static final DeferredItem<Item> SOUL_TOUCHED_ROD = ITEMS.registerSimpleItem("soul_touched_rod");
 
+    public static final DeferredItem<Item> SOUL_TOUCHED_SWORD = ITEMS.registerItem("soul_touched_sword", (p)->new SoulTouchedSword());
+
     public static void register(IEventBus eventBus){
         ITEMS.register(eventBus);
     }

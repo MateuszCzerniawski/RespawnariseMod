@@ -27,6 +27,7 @@ public class ModCreativeModTabs {
             ModItems.SOUL_TOUCHED_LEGGINGS,
             ModItems.SOUL_TOUCHED_BOOTS,
             ModItems.MULTI_TOOL,
+            ModItems.SOUL_TOUCHED_SWORD,
             ModItems.SACRIFISE_DAGGER
 
             );

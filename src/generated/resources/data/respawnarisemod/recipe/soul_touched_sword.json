@@ -1,0 +1,24 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "C": {
+      "item": "respawnarisemod:soul_touched_core"
+    },
+    "N": {
+      "item": "minecraft:netherite_ingot"
+    },
+    "R": {
+      "item": "respawnarisemod:soul_touched_rod"
+    }
+  },
+  "pattern": [
+    " N ",
+    " C ",
+    " R "
+  ],
+  "result": {
+    "count": 1,
+    "id": "respawnarisemod:soul_touched_sword"
+  }
+}

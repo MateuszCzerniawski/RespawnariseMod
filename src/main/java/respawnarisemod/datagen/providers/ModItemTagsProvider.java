@@ -35,7 +35,8 @@ public class ModItemTagsProvider extends ItemTagsProvider {
                 .add(ModItems.SOUL_TOUCHED_BOOTS.get())
                 .add(ModItems.WINGED_SOUL_TOUCHED_CHESTPLATE.get());
         this.tag(ItemTags.SWORDS)
-                .add(ModItems.SACRIFISE_DAGGER.get());
+                .add(ModItems.SACRIFISE_DAGGER.get())
+                .add(ModItems.SOUL_TOUCHED_SWORD.get());
         this.tag(ItemTags.PICKAXES)
                 .add(ModItems.MULTI_TOOL.get());
         this.tag(ItemTags.AXES)

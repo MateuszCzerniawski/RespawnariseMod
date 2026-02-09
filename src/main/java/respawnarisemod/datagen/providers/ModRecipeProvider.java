@@ -73,6 +73,15 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
                 .define('R', ModItems.SOUL_TOUCHED_ROD.get())
                 .unlockedBy("has_core",has(ModItems.SOUL_TOUCHED_CORE.get()))
                 .save(recipeOutput);
+        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModItems.SOUL_TOUCHED_SWORD.get())
+                .pattern(" N ")
+                .pattern(" C ")
+                .pattern(" R ")
+                .define('N', Items.NETHERITE_INGOT)
+                .define('C', ModItems.SOUL_TOUCHED_CORE.get())
+                .define('R', ModItems.SOUL_TOUCHED_ROD.get())
+                .unlockedBy("has_core",has(ModItems.SOUL_TOUCHED_CORE.get()))
+                .save(recipeOutput);
 
 
     }

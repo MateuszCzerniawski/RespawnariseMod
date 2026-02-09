@@ -17,8 +17,11 @@ import respawnarisemod.util.ModDataComponents;
 import java.util.List;
 
 public class SacrifiseDagger extends SwordItem {
+    protected SacrifiseDagger(Tier tier,Properties properties){
+        super(tier,properties);
+    }
     public SacrifiseDagger() {
-        super(Tiers.WOOD,(new Item.Properties())
+        this(Tiers.WOOD,(new Item.Properties())
                 .attributes(SwordItem.createAttributes(Tiers.WOOD, 4, -3.0F))
                 .component(ModDataComponents.DAGGER_CONTENT.get(), SacrifiseDaggerComponent.empty())
         );

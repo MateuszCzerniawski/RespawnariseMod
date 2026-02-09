@@ -1,4 +1,4 @@
-// 1.21.1	2026-02-08T23:44:15.614069	Item Models: respawnarisemod
+// 1.21.1	2026-02-09T10:06:29.6596413	Item Models: respawnarisemod
 2e5186f5c563cbeae0c54cf2fc8c58daa50d8611 assets/respawnarisemod/models/item/multi_tool.json
 abfb712201ba0824a89964b735ac4080dc7ee88c assets/respawnarisemod/models/item/sacrifise_dagger.json
 803b4d9c6a77db21350f07f4a02efee80de5d884 assets/respawnarisemod/models/item/soul_touched_boots.json
@@ -47,6 +47,7 @@ f366220d8b2e23282f16641cc4930b785e95c73b assets/respawnarisemod/models/item/soul
 bbeed528acb5789afb96159e7d2831ae472abd95 assets/respawnarisemod/models/item/soul_touched_leggings_quartz_trim.json
 278923986e0bddf92230810630494261e8a51d24 assets/respawnarisemod/models/item/soul_touched_leggings_redstone_trim.json
 5292b16fa183d34cfa73d78f7fb948e00cfb409c assets/respawnarisemod/models/item/soul_touched_rod.json
+bb387bda6b41d34dea6849fc3842755bb8fe078a assets/respawnarisemod/models/item/soul_touched_sword.json
 26800a54d51638b441ce46da7a1d2bd433056b33 assets/respawnarisemod/models/item/soul_visage.json
 9477574fe6112b4404d20a0b57a6eb312a97ffec assets/respawnarisemod/models/item/winged_soul_touched_chestplate.json
 e5061c756704359769524f098d25dc0a6fc75800 assets/respawnarisemod/models/item/winged_soul_touched_chestplate_amethyst_trim.json
