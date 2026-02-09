@@ -54,14 +54,4 @@ public class RespawnariseModClient {
     static void registerScreens(RegisterMenuScreensEvent event){
         event.register(ModMenuTypes.SOUL_MATRIX_MENU.get(), SoulMatrixScreen::new);
     }
-    @SubscribeEvent
-    public static void register(RegisterPayloadHandlersEvent event) {
-        final PayloadRegistrar reg = event.registrar("1");
-        reg.playToServer(SoulMatrixSetMaimedPayload.TYPE,
-                SoulMatrixSetMaimedPayload.STREAM_CODEC,
-                SoulMatrixSetMaimedPayload.HANDLER);
-        reg.playToServer(SoulMatrixSetDistancePayload.TYPE,
-                SoulMatrixSetDistancePayload.STREAM_CODEC,
-                SoulMatrixSetDistancePayload.HANDLER);
-    }
 }

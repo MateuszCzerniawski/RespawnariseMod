@@ -1,5 +1,7 @@
 package respawnarisemod;
 
+import net.neoforged.neoforge.network.event.RegisterPayloadHandlersEvent;
+import net.neoforged.neoforge.network.registration.PayloadRegistrar;
 import org.slf4j.Logger;
 
 import com.mojang.logging.LogUtils;
@@ -19,6 +21,9 @@ import respawnarisemod.item.ModCreativeModTabs;
 import respawnarisemod.item.ModItems;
 import respawnarisemod.screen.ModMenuTypes;
 import respawnarisemod.util.ModDataComponents;
+import respawnarisemod.util.ModPayloads;
+import respawnarisemod.util.SoulMatrixSetDistancePayload;
+import respawnarisemod.util.SoulMatrixSetMaimedPayload;
 
 // The value here should match an entry in the META-INF/neoforge.mods.toml file
 @Mod(RespawnariseMod.MOD_ID)
@@ -31,6 +36,7 @@ public class RespawnariseMod {
         NeoForge.EVENT_BUS.register(this);
 
         ModDataComponents.register(modEventBus);
+        modEventBus.addListener(ModPayloads::register);
         ModItems.register(modEventBus);
         ModBlocks.register(modEventBus);
         ModCreativeModTabs.register(modEventBus);
