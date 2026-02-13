@@ -29,7 +29,7 @@ public class SoulMatrixMenu extends AbstractContainerMenu {
 
 
     public SoulMatrixMenu(int containerId, Inventory playerInventory, FriendlyByteBuf extraData) {
-        this(containerId, playerInventory,new SimpleContainer(4),new SimpleContainerData(3));
+        this(containerId, playerInventory,new SimpleContainer(1),new SimpleContainerData(1));
         blockEntity = (SoulMatrixBlockEntity) Minecraft.getInstance().level.getBlockEntity(extraData.readBlockPos());
     }
 
@@ -40,15 +40,9 @@ public class SoulMatrixMenu extends AbstractContainerMenu {
         this.data = data;
         if(container instanceof SoulMatrixBlockEntity){
             this.blockEntity=((SoulMatrixBlockEntity)container);
-            this.addSlot(new SlotItemHandler(blockEntity.itemStackHandler,SoulMatrixBlockEntity.INPUT_SLOT_1,80,9));
-            this.addSlot(new SlotItemHandler(blockEntity.itemStackHandler,SoulMatrixBlockEntity.INPUT_SLOT_2,56,33));
-            this.addSlot(new SlotItemHandler(blockEntity.itemStackHandler,SoulMatrixBlockEntity.INPUT_SLOT_3,104,33));
-            this.addSlot(new SlotItemHandler(blockEntity.itemStackHandler,SoulMatrixBlockEntity.INPUT_SLOT_4,80,57));
+            this.addSlot(new SlotItemHandler(blockEntity.itemStackHandler,SoulMatrixBlockEntity.INPUT_SLOT,80,9));
         }else{
-            this.addSlot(new Slot(container,SoulMatrixBlockEntity.INPUT_SLOT_1,80,9));
-            this.addSlot(new Slot(container,SoulMatrixBlockEntity.INPUT_SLOT_2,56,33));
-            this.addSlot(new Slot(container,SoulMatrixBlockEntity.INPUT_SLOT_3,104,33));
-            this.addSlot(new Slot(container,SoulMatrixBlockEntity.INPUT_SLOT_4,80,57));
+            this.addSlot(new Slot(container,SoulMatrixBlockEntity.INPUT_SLOT,80,9));
         }
         addPlayerInventory(playerInventory);
         addPlayerHotbar(playerInventory);
@@ -70,7 +64,7 @@ public class SoulMatrixMenu extends AbstractContainerMenu {
     public ItemStack quickMoveStack(Player player, int index) {
         ItemStack itemstack = ItemStack.EMPTY;
         Slot slot = this.slots.get(index);
-        int matrixSlots = 4;
+        int matrixSlots = SoulMatrixBlockEntity.CONTAINER_SIZE;
         int inventorySlots = 27;
         int hotbarSlots = 9;
         if (slot != null && slot.hasItem()) {
