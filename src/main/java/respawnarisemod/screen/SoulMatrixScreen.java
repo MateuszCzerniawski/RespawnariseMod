@@ -28,12 +28,16 @@ public class SoulMatrixScreen extends AbstractContainerScreen<SoulMatrixMenu> {
     protected void init() {
         super.init();
         addRenderableWidget(new ToggleWidget(
-                leftPos+15,topPos+30, 20,40,
+                leftPos+52,topPos+16, 20,40,
                 menu.getMaimed(),menu::changeMaimed
         ));
         addRenderableWidget(new ToggleWidget(
-                leftPos+133,topPos+30, 20,40,
+                leftPos+91,topPos+16, 20,40,
                menu.getDistance(),menu::changeDistance
+        ));
+        addRenderableWidget(new ToggleWidget(
+                leftPos+130,topPos+16, 20,40,
+                menu.getRequireSignal(),menu::changeSignalRequirement
         ));
     }
 

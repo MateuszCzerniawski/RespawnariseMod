@@ -19,6 +19,7 @@ import respawnarisemod.RespawnariseMod;
 import respawnarisemod.block.entity.SoulMatrixBlockEntity;
 import respawnarisemod.util.SoulMatrixSetDistancePayload;
 import respawnarisemod.util.SoulMatrixSetMaimedPayload;
+import respawnarisemod.util.SoulMatrixSetPowerRequirementPayload;
 
 public class SoulMatrixMenu extends AbstractContainerMenu {
 
@@ -42,7 +43,7 @@ public class SoulMatrixMenu extends AbstractContainerMenu {
             this.blockEntity=((SoulMatrixBlockEntity)container);
             this.addSlot(new SlotItemHandler(blockEntity.itemStackHandler,SoulMatrixBlockEntity.INPUT_SLOT,80,9));
         }else{
-            this.addSlot(new Slot(container,SoulMatrixBlockEntity.INPUT_SLOT,80,9));
+            this.addSlot(new Slot(container,SoulMatrixBlockEntity.INPUT_SLOT,18,33));
         }
         addPlayerInventory(playerInventory);
         addPlayerHotbar(playerInventory);
@@ -107,6 +108,9 @@ public class SoulMatrixMenu extends AbstractContainerMenu {
     public void changeMaimed(boolean value){
         PacketDistributor.sendToServer(new SoulMatrixSetMaimedPayload(getPos(),value));
     }
+    public void changeSignalRequirement(boolean value){
+        PacketDistributor.sendToServer(new SoulMatrixSetPowerRequirementPayload(getPos(),value));
+    }
     private BlockPos getPos(){
         return blockEntity.getBlockPos();
     }
@@ -115,5 +119,8 @@ public class SoulMatrixMenu extends AbstractContainerMenu {
     }
     public boolean getDistance(){
         return this.blockEntity.isLongDistance();
+    }
+    public boolean getRequireSignal(){
+        return this.blockEntity.isRequireSignal();
     }
 }

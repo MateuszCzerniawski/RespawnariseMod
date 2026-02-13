@@ -12,7 +12,6 @@ public class ModPayloads {
 
     @SubscribeEvent // on the mod event bus
     public static void register(RegisterPayloadHandlersEvent event) {
-        RespawnariseMod.log("registering");
         final PayloadRegistrar registrar = event.registrar("1");
         try{
             registrar.playToServer(SoulMatrixSetMaimedPayload.TYPE,
@@ -21,6 +20,9 @@ public class ModPayloads {
             registrar.playToServer(SoulMatrixSetDistancePayload.TYPE,
                     SoulMatrixSetDistancePayload.STREAM_CODEC,
                     SoulMatrixSetDistancePayload.HANDLER);
+            registrar.playToServer(SoulMatrixSetPowerRequirementPayload.TYPE,
+                    SoulMatrixSetPowerRequirementPayload.STREAM_CODEC,
+                    SoulMatrixSetPowerRequirementPayload.HANDLER);
         }catch (Exception e){
             RespawnariseMod.log(e.getMessage());
         }

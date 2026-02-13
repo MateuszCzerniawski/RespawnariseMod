@@ -213,7 +213,6 @@ public class SoulMatrixBlockEntity extends BaseContainerBlockEntity implements M
 
     public void setSpawnMaimed(boolean spawnMaimed) {
         this.spawnMaimed = spawnMaimed;
-        data.set(0,spawnMaimed?1:0);
         setChanged();
         level.sendBlockUpdated(worldPosition,getBlockState(),getBlockState(),3);
     }
@@ -224,7 +223,16 @@ public class SoulMatrixBlockEntity extends BaseContainerBlockEntity implements M
 
     public void setLongDistance(boolean longDistance) {
         isLongDistance = longDistance;
-        data.set(1,longDistance?1:0);
+        setChanged();
+        level.sendBlockUpdated(worldPosition,getBlockState(),getBlockState(),3);
+    }
+
+    public boolean isRequireSignal() {
+        return requireSignal;
+    }
+
+    public void setRequireSignal(boolean requireSignal) {
+        this.requireSignal = requireSignal;
         setChanged();
         level.sendBlockUpdated(worldPosition,getBlockState(),getBlockState(),3);
     }
