@@ -1,5 +1,4 @@
 package respawnarisemod.block.entity;
-
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.core.NonNullList;
@@ -220,7 +219,7 @@ public class SoulMatrixBlockEntity extends BaseContainerBlockEntity implements M
                 return 0;
             }
         }
-        ItemStack stack2 =  itemStackHandler.getStackInSlot(INPUT_SLOT_1);
+        ItemStack stack2 =  itemStackHandler.getStackInSlot(INPUT_SLOT_2);
         if(stack2!=null && !stack2.isEmpty()){
             if(stack2.getItem() instanceof SoulVisage){
                 SoulVisageComponent comp2 = stack2.get(ModDataComponents.VISAGE_CONTENT);
@@ -239,7 +238,7 @@ public class SoulMatrixBlockEntity extends BaseContainerBlockEntity implements M
                 return 0;
             }
         }
-        ItemStack stack3 =  itemStackHandler.getStackInSlot(INPUT_SLOT_1);
+        ItemStack stack3 =  itemStackHandler.getStackInSlot(INPUT_SLOT_3);
         if(stack3!=null && !stack3.isEmpty()){
             if(stack3.getItem() instanceof SoulVisage){
                 SoulVisageComponent comp3 = stack3.get(ModDataComponents.VISAGE_CONTENT);
@@ -258,7 +257,7 @@ public class SoulMatrixBlockEntity extends BaseContainerBlockEntity implements M
                 return 0;
             }
         }
-        ItemStack stack4 =  itemStackHandler.getStackInSlot(INPUT_SLOT_1);
+        ItemStack stack4 =  itemStackHandler.getStackInSlot(INPUT_SLOT_4);
         if(stack4!=null && !stack4.isEmpty()){
             if(stack4.getItem() instanceof SoulVisage){
                 SoulVisageComponent comp4 = stack4.get(ModDataComponents.VISAGE_CONTENT);
@@ -330,7 +329,7 @@ public class SoulMatrixBlockEntity extends BaseContainerBlockEntity implements M
 
     public void setLongDistance(boolean longDistance) {
         isLongDistance = longDistance;
-        data.set(1,spawnMaimed?1:0);
+        data.set(1,longDistance?1:0);
         setChanged();
         level.sendBlockUpdated(worldPosition,getBlockState(),getBlockState(),3);
     }
