@@ -52,7 +52,7 @@ public class SoulMatrixBlockEntity extends BaseContainerBlockEntity implements M
     public static final int DEFAULT_RANGE = 2;
     public static final int DEFAULT_SPAWN_COUNT = 3;
     public static final int DEFAULT_SPAWN_DELAY = 20*4; //20ticks x 4s
-    public static final int NEARBY_ENTITIES_RESTRICTION = 50;
+    public static final int NEARBY_ENTITIES_RESTRICTION = 200;
     public static final int LONG_DISTANCE_PLAYER_DETECTION_RANGE = 60;
     public static final int SHORT_DISTANCE_PLAYER_DETECTION_RANGE = 20;
     protected final ContainerData data;
