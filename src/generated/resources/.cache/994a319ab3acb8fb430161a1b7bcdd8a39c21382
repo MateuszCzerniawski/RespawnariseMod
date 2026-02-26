@@ -1,6 +1,14 @@
-// 1.21.1	2026-02-09T10:06:29.6586427	Tags for minecraft:item mod id respawnarisemod
+// 1.21.1	2026-02-26T17:27:06.3620118	Tags for minecraft:item mod id respawnarisemod
 8bbd18b77e1097101ee294a2f3e7125ffcf38e1b data/minecraft/tags/item/axes.json
+71fa7c15af834a5f852fbffe0f644a8b806ea09d data/minecraft/tags/item/chest_armor.json
 2d711d440d599ddf8703d72f3ffad74060f4f244 data/minecraft/tags/item/enchantable/armor.json
+71fa7c15af834a5f852fbffe0f644a8b806ea09d data/minecraft/tags/item/enchantable/chest_armor.json
+f51ad297335d06ea5deb2851e02baa5e35377941 data/minecraft/tags/item/enchantable/foot_armor.json
+0549cbfdd2bf33b36ca1c31e7b5d2e3520f52bad data/minecraft/tags/item/enchantable/head_armor.json
+8e4235f0e2b077a1adc8b118d98a36fda99d2a34 data/minecraft/tags/item/enchantable/leg_armor.json
+f51ad297335d06ea5deb2851e02baa5e35377941 data/minecraft/tags/item/foot_armor.json
+0549cbfdd2bf33b36ca1c31e7b5d2e3520f52bad data/minecraft/tags/item/head_armor.json
+8e4235f0e2b077a1adc8b118d98a36fda99d2a34 data/minecraft/tags/item/leg_armor.json
 8bbd18b77e1097101ee294a2f3e7125ffcf38e1b data/minecraft/tags/item/pickaxes.json
 8bbd18b77e1097101ee294a2f3e7125ffcf38e1b data/minecraft/tags/item/shovels.json
 628a4fdba670858266643b29511ca168a8458869 data/minecraft/tags/item/swords.json

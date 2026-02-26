@@ -34,6 +34,27 @@ public class ModItemTagsProvider extends ItemTagsProvider {
                 .add(ModItems.SOUL_TOUCHED_LEGGINGS.get())
                 .add(ModItems.SOUL_TOUCHED_BOOTS.get())
                 .add(ModItems.WINGED_SOUL_TOUCHED_CHESTPLATE.get());
+        this.tag(ItemTags.HEAD_ARMOR)
+                .add(ModItems.SOUL_TOUCHED_HELMET.get());
+        this.tag(ItemTags.HEAD_ARMOR_ENCHANTABLE)
+                .add(ModItems.SOUL_TOUCHED_HELMET.get());
+        this.tag(ItemTags.CHEST_ARMOR)
+                .add(ModItems.SOUL_TOUCHED_CHESTPLATE.get())
+                .add(ModItems.WINGED_SOUL_TOUCHED_CHESTPLATE.get());
+        this.tag(ItemTags.CHEST_ARMOR_ENCHANTABLE)
+                .add(ModItems.SOUL_TOUCHED_CHESTPLATE.get())
+                .add(ModItems.WINGED_SOUL_TOUCHED_CHESTPLATE.get());
+        this.tag(ItemTags.LEG_ARMOR)
+                .add(ModItems.SOUL_TOUCHED_LEGGINGS.get());
+        this.tag(ItemTags.LEG_ARMOR_ENCHANTABLE)
+                .add(ModItems.SOUL_TOUCHED_LEGGINGS.get());
+        this.tag(ItemTags.FOOT_ARMOR)
+                .add(ModItems.SOUL_TOUCHED_BOOTS.get());
+        this.tag(ItemTags.FOOT_ARMOR_ENCHANTABLE)
+                .add(ModItems.SOUL_TOUCHED_BOOTS.get());
+
+
+
         this.tag(ItemTags.SWORDS)
                 .add(ModItems.SACRIFISE_DAGGER.get())
                 .add(ModItems.SOUL_TOUCHED_SWORD.get());
