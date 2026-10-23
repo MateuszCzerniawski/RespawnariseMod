@@ -4,8 +4,7 @@ It is a demonstartion of ability to build on existing code base and with instruc
 
 # Credits
 - mod code structure and technical explanation - [Modding by Kaupenjoe's modding tutorial](https://www.youtube.com/watch?v=yG-oJPR_40w&list=PLKGarocXCE1G6CQOoiYdMVx-E1d9F_itF&index=1)
-- mod inspiration - [Conjuring](https://www.curseforge.com/minecraft/mc-mods/
-conjuring)
+- mod inspiration - [Conjuring](https://www.curseforge.com/minecraft/mc-mods/conjuring)
 - Assets - recolored assets from vanilla version of the game
 # Installation information
 
